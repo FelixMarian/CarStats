@@ -1,0 +1,15 @@
+C:\Users\stoen\Desktop\CarStats\backend\CarStats\CarStats.Data\bin\Debug\net8.0\CarStats.Data.deps.json
+C:\Users\stoen\Desktop\CarStats\backend\CarStats\CarStats.Data\bin\Debug\net8.0\CarStats.Data.runtimeconfig.json
+C:\Users\stoen\Desktop\CarStats\backend\CarStats\CarStats.Data\bin\Debug\net8.0\CarStats.Data.dll
+C:\Users\stoen\Desktop\CarStats\backend\CarStats\CarStats.Data\bin\Debug\net8.0\CarStats.Data.pdb
+C:\Users\stoen\Desktop\CarStats\backend\CarStats\CarStats.Data\obj\Debug\net8.0\CarStats.Data.csproj.AssemblyReference.cache
+C:\Users\stoen\Desktop\CarStats\backend\CarStats\CarStats.Data\obj\Debug\net8.0\CarStats.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\stoen\Desktop\CarStats\backend\CarStats\CarStats.Data\obj\Debug\net8.0\CarStats.Data.AssemblyInfoInputs.cache
+C:\Users\stoen\Desktop\CarStats\backend\CarStats\CarStats.Data\obj\Debug\net8.0\CarStats.Data.AssemblyInfo.cs
+C:\Users\stoen\Desktop\CarStats\backend\CarStats\CarStats.Data\obj\Debug\net8.0\CarStats.Data.csproj.CoreCompileInputs.cache
+C:\Users\stoen\Desktop\CarStats\backend\CarStats\CarStats.Data\obj\Debug\net8.0\CarStats.Data.sourcelink.json
+C:\Users\stoen\Desktop\CarStats\backend\CarStats\CarStats.Data\obj\Debug\net8.0\CarStats.Data.dll
+C:\Users\stoen\Desktop\CarStats\backend\CarStats\CarStats.Data\obj\Debug\net8.0\refint\CarStats.Data.dll
+C:\Users\stoen\Desktop\CarStats\backend\CarStats\CarStats.Data\obj\Debug\net8.0\CarStats.Data.pdb
+C:\Users\stoen\Desktop\CarStats\backend\CarStats\CarStats.Data\obj\Debug\net8.0\CarStats.Data.genruntimeconfig.cache
+C:\Users\stoen\Desktop\CarStats\backend\CarStats\CarStats.Data\obj\Debug\net8.0\ref\CarStats.Data.dll
