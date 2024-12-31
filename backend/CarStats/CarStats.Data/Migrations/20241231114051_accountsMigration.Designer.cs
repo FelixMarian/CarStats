@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CarStats.Data.Migrations
 {
     [DbContext(typeof(AccountDbContext))]
-    [Migration("20241229223529_initialMigration")]
-    partial class initialMigration
+    [Migration("20241231114051_accountsMigration")]
+    partial class accountsMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,14 +25,13 @@ namespace CarStats.Data.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("CarStats.Data.Account", b =>
+            modelBuilder.Entity("CarStats.Data.Models.Account", b =>
                 {
-                    b.Property<Guid>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
+                    b.Property<string>("id")
+                        .HasColumnType("text");
 
                     b.Property<DateTime>("createdTime")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("email")
                         .IsRequired()

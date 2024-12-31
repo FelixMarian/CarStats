@@ -49,21 +49,56 @@
         }
       }
     },
-    "/requestData": {
-      "get": {
+    "/getCars": {
+      "post": {
         "tags": [
           "CarStats"
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetCarDTO"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "200": {
             "description": "OK",
             "content": {
-              "text/plain": {
+              "application/json": {
                 "schema": {
-                  "type": "string"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Car"
+                  }
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/addCar": {
+      "post": {
+        "tags": [
+          "CarStats"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CarAddDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
           }
         }
       }
@@ -97,6 +132,56 @@
             "nullable": true
           },
           "username": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Car": {
+        "type": "object",
+        "properties": {
+          "player_id": {
+            "type": "string",
+            "nullable": true
+          },
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "car_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "created_time": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated_time": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CarAddDTO": {
+        "type": "object",
+        "properties": {
+          "car_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "player_uuid": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GetCarDTO": {
+        "type": "object",
+        "properties": {
+          "player_id": {
             "type": "string",
             "nullable": true
           }

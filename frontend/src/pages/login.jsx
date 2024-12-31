@@ -19,13 +19,14 @@ function login(){
             }, {
                 headers: {
                     "Content-Type": "application/json"
-                }
+                },
+                withCredentials: true
             });
 
 
             if(response.status === 200) {
                 sessionStorage.setItem("email", email);
-                sessionStorage.setItem("uuid", response.data.id);
+                sessionStorage.setItem("player_uuid", response.data.id);
                 sessionStorage.setItem("username", response.data.username);
                 navigate("/dashboard");
             }

@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Http;
 using BCrypt.Net;
+using System.Reflection.Metadata.Ecma335;
+using CarStats;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,14 +16,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AccountDbContext>(options =>
     options.UseNpgsql("Host=localhost;Port=5432;Database=AccountDb; Username=postgres;Password=POSTGRES"));
-
-// Session add
-builder.Services.AddSession(o =>
-{
-    o.IdleTimeout = TimeSpan.FromMinutes(30);
-    
-});
-builder.Services.AddDistributedMemoryCache();
+builder.Services.AddDbContext<CarDbContext>(options =>
+    options.UseNpgsql("Host=localhost;Port=5432;Database=CarsDb;Username=postgres;Password=POSTGRES"));
+ 
 
 // Enable CORS from react frontend
 builder.Services.AddCors(options =>
@@ -32,21 +29,21 @@ builder.Services.AddCors(options =>
                           builder
                           .WithOrigins("http://localhost:5173")
                           .AllowAnyMethod()
-                          .AllowAnyHeader();
+                          .AllowAnyHeader()
+                          .AllowCredentials();
                       });
 });
 
 // For dateTime
 AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
- 
 
 var app = builder.Build();
 
+ 
 
 // Use CORSr
 app.UseCors("AllowAll");
-app.UseSession();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -55,27 +52,22 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.MapPost("/registerAccount", async (HttpContext httpContext, AccountDbContext db, [FromBody] AccountRegisterDTO request) =>
+app.MapPost("/registerAccount", async (AccountDbContext db,   [FromBody] AccountRegisterDTO request) =>
 {
     var encReqPass = BCrypt.Net.BCrypt.HashPassword(request.password);
     Account account = new Account(request.email, request.username, encReqPass, DateTime.Now);
     db.accounts.Add(account);
     await db.SaveChangesAsync();
-    httpContext.Session.SetString("email", request.email);
-    httpContext.Session.SetString("username", request.username);
-    httpContext.Session.SetString("uuid", account.id.ToString());
+ 
     return Results.Ok(account);
 });
 
-app.MapPost("/loginAccount", async (HttpContext httpContext, AccountDbContext db, [FromBody] AccountLoginDTO request) =>
+app.MapPost("/loginAccount", async (AccountDbContext db , [FromBody] AccountLoginDTO request) =>
 {
-    Account foundAcc= await db.accounts.FirstOrDefaultAsync(acc => acc.email == request.email);
-    String password = foundAcc.password;
- 
-    if (BCrypt.Net.BCrypt.Verify(request.password, password)) {
-        httpContext.Session.SetString("email", foundAcc.email);
-        httpContext.Session.SetString("username", foundAcc.username);
-        httpContext.Session.SetString("uuid", foundAcc.id.ToString());
+Account foundAcc = await db.accounts.FirstOrDefaultAsync(acc => acc.email == request.email);
+String password = foundAcc.password;
+
+if (BCrypt.Net.BCrypt.Verify(request.password, password)) {
         return Results.Ok(foundAcc);
     } else
     {
@@ -83,10 +75,18 @@ app.MapPost("/loginAccount", async (HttpContext httpContext, AccountDbContext db
     }
 });
 
-app.MapGet("/requestData", async (HttpContext httpContext) => 
-{
-    return httpContext.Session.GetString("email");
 
+app.MapPost("/getCars", async (CarDbContext db, [FromBody] GetCarDTO response) =>
+{
+    return await db.cars.Where(c => c.player_id == response.player_id).ToListAsync();
+});
+
+app.MapPost("/addCar", async (CarDbContext db, [FromBody] CarAddDTO response) =>
+{
+    Car car = new Car(response.player_uuid, response.car_name);
+    db.cars.Add(car);
+    await db.SaveChangesAsync();
+    return Results.Ok(car);
 });
 
 app.UseHttpsRedirection();

@@ -2,7 +2,7 @@
 {
     public class Account
     {
-        public Guid id { get; set; }
+        public String id { get; set; }
         public string email { get; set; }
         public string username { get; set; }
         public string password { get; set; }
@@ -12,7 +12,7 @@
 
         public Account(string email, string username, string password, DateTime createdTime)
         {
-            id = Guid.NewGuid();
+            id = Guid.NewGuid().ToString();
             this.email = email;
             this.username = username;
             this.password = password;
