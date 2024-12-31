@@ -1,0 +1,53 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.content{
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    width: 50vw;
+    height: 90vh;
+    gap: 2rem;
+}
+
+.info{
+    background: #efefe9;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    width: 15vw;
+    height: 40vh;
+    background: #efefe9;
+}
+
+.cars_info{
+    background-color: #eaea60;
+    border-bottom: 0.5px solid #6c6c2a;
+    height: 5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.stats{
+    background: #efefe9;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    width: 30vw;
+    height: 90vh;
+}

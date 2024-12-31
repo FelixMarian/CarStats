@@ -4,6 +4,8 @@ import './App.css'
 import Login from "./pages/login.jsx";
 // @ts-ignore
 import Register from "./pages/register.jsx";
+// @ts-ignore
+import Dashboard from "./pages/dashboard.jsx";
 function App() {
 
 
@@ -13,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login/>} />
         <Route path="/register" element={<Register/>} />
+        <Route path="/dashboard" element={<Dashboard/>} />
       </Routes>
     </Router>
     </>

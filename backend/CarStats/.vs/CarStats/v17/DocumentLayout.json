@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{8F530441-34DF-4F34-B4D9-3A579600FAA6}|CarStats\\CarStats.csproj|solutionrelative:carstats\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{32948754-8221-43DD-B490-17666C5893AE}|CarStats.Data\\CarStats.Data.csproj|c:\\users\\stoen\\desktop\\carstats\\backend\\carstats\\carstats.data\\models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{32948754-8221-43DD-B490-17666C5893AE}|CarStats.Data\\CarStats.Data.csproj|solutionrelative:carstats.data\\models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{32948754-8221-43DD-B490-17666C5893AE}|CarStats.Data\\CarStats.Data.csproj|c:\\users\\stoen\\desktop\\carstats\\backend\\carstats\\carstats.data\\dtos\\accountlogindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{32948754-8221-43DD-B490-17666C5893AE}|CarStats.Data\\CarStats.Data.csproj|solutionrelative:carstats.data\\dtos\\accountlogindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32948754-8221-43DD-B490-17666C5893AE}|CarStats.Data\\CarStats.Data.csproj|c:\\users\\stoen\\desktop\\carstats\\backend\\carstats\\carstats.data\\models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32948754-8221-43DD-B490-17666C5893AE}|CarStats.Data\\CarStats.Data.csproj|solutionrelative:carstats.data\\models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{32948754-8221-43DD-B490-17666C5893AE}|CarStats.Data\\CarStats.Data.csproj|c:\\users\\stoen\\desktop\\carstats\\backend\\carstats\\carstats.data\\dtos\\accountregisterdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -30,13 +30,13 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "AccountLoginDTO.cs",
               "DocumentMoniker": "C:\\Users\\stoen\\Desktop\\CarStats\\backend\\CarStats\\CarStats.Data\\DTOs\\AccountLoginDTO.cs",
               "RelativeDocumentMoniker": "CarStats.Data\\DTOs\\AccountLoginDTO.cs",
               "ToolTip": "C:\\Users\\stoen\\Desktop\\CarStats\\backend\\CarStats\\CarStats.Data\\DTOs\\AccountLoginDTO.cs",
               "RelativeToolTip": "CarStats.Data\\DTOs\\AccountLoginDTO.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAApwAgAAAAKAAAAAAAAAA==",
+              "ViewState": "AgIAAAIAAAAAAAAAAAApwBAAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-30T07:52:15.362Z",
               "EditorCaption": ""
@@ -51,17 +51,18 @@
               "RelativeToolTip": "CarStats.Data\\DTOs\\AccountRegisterDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAlwAoAAABQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-30T07:51:29.29Z"
+              "WhenOpened": "2024-12-30T07:51:29.29Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Account.cs",
               "DocumentMoniker": "C:\\Users\\stoen\\Desktop\\CarStats\\backend\\CarStats\\CarStats.Data\\Models\\Account.cs",
               "RelativeDocumentMoniker": "CarStats.Data\\Models\\Account.cs",
               "ToolTip": "C:\\Users\\stoen\\Desktop\\CarStats\\backend\\CarStats\\CarStats.Data\\Models\\Account.cs",
               "RelativeToolTip": "CarStats.Data\\Models\\Account.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAA5wAsAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAgAAAAAAAAAAAA3wAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-29T19:49:43.819Z",
               "EditorCaption": ""
@@ -74,7 +75,7 @@
               "RelativeDocumentMoniker": "CarStats\\Program.cs",
               "ToolTip": "C:\\Users\\stoen\\Desktop\\CarStats\\backend\\CarStats\\CarStats\\Program.cs",
               "RelativeToolTip": "CarStats\\Program.cs",
-              "ViewState": "AgIAACsAAAAAAAAAAAArwDkAAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAAAE4AAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-29T19:43:36.31Z",
               "EditorCaption": ""

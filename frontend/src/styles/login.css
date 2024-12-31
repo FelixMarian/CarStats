@@ -34,21 +34,7 @@ body {
     margin: 1rem;
 }
 
-.label{
-    margin-top: 1rem;
-    color: black;
-    font-size: 3rem;
-}
 
-.sign_in{
-    background-color: #eaea60;
-    border-bottom: 0.5px solid #6c6c2a;
-    height: 5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
 
 .login-input{
     display: flex;

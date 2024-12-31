@@ -3,6 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import bcrypt from "bcryptjs";
 import {useNavigate} from "react-router-dom";
+import TitleLabe from "../components/titleLabe.jsx";
 
 
 function register(){
@@ -19,7 +20,7 @@ function register(){
             const response = await axios.post("https://localhost:7178/registerAccount", {
                     email: mail,
                     username: user,
-                    password: bcrypt.hashSync(pass,10)
+                    password: pass
                 }, {
                     headers: {
                         "Content-Type": "application/json"
@@ -27,8 +28,12 @@ function register(){
                 }
             )
             //If register was made, redirect
-            if(response.status === 200)
-                navigate("/login");
+            if(response.status === 200) {
+                sessionStorage.setItem("email", email);
+                sessionStorage.setItem("uuid", response.data.id);
+                sessionStorage.setItem("username", response.data.username);
+                navigate("/dashboard");
+            }
         } catch (err) {
             console.log(err)
         }
@@ -39,9 +44,7 @@ function register(){
         <>
         <div className="container">
             <div className="register-wrap">
-                <div className="sign_in">
-                    <label className="label">Sign up</label>
-                </div>
+                <TitleLabe title="Sign up"/>
                 <div className="register-input">
                     <div className="form-floating mb-3">
                         <input type="email" className="form-control" value = {mail} placeholder="Email address"
