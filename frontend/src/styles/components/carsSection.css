@@ -1,0 +1,46 @@
+.list-group-item:last-child{
+    width:9vw; !important;
+    color: black;
+    height: 5vh;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+a.list-group-item, button.list-group-item{
+    color:black !important;
+    height: 5vh;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin-top: 1rem;
+
+}
+
+.car_info{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 12vw;
+}
+
+.fa fa-trash-o{
+    font-size:3em;
+    padding: 0;
+}
+
+.deleteBtn{
+    background: transparent;
+    border: none;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    margin-left: 1rem;
+}

@@ -1,9 +1,12 @@
 import "../styles/components/carsSection.css"
 import axios from "axios";
 import {useEffect, useState} from "react";
+import { IoIosClose } from "react-icons/io";
 
 function CarsSection() {
     const [cars, setCars] = useState([]);
+    const [reloadCars, setReloadCars] = useState(false);
+    const [deletedCars, setDeletedCars] = useState(false);
 
     async function getCars(){
         try{
@@ -16,29 +19,64 @@ function CarsSection() {
                 withCredentials: true
             });
             setCars(response.data);
-
-
         } catch (err) {
             console.log(err);
         }
     }
 
+    async function deleteCar(prop){
+        try{
+            const id = prop;
+            const response = await axios.delete(`https://localhost:7178/deleteCar/${id}`,{
+            })
+            setDeletedCars(!deletedCars);
+        } catch (err){
+            console.log(err);
+        }
+    }
+
+    async function addCar(){
+        try{
+            const response = await axios.post("https://localhost:7178/addCar",{
+                car_name: "masina",
+                player_uuid: sessionStorage.getItem("player_uuid")
+            },{headers: {
+                    "Content-Type": "application/json"
+                },
+                withCredentials: true});
+
+            if(response.status==200){
+                sessionStorage.setItem("car_name", response.data.car_name);
+                sessionStorage.setItem("car_id", response.data.id);
+                setReloadCars(!reloadCars);
+
+            }
+        }catch (err){
+            console.log(err);
+        }
+    }
     useEffect(() => {
         getCars();
-    }, []);
+    }, [reloadCars,deletedCars]);
 
     return (
         <>
             <div className="list-group">
                 {cars.map((item, index) => (
-                    <button key={index} type="button" className="list-group-item list-group-item-action" aria-current="true">
-                        {item.car_name}
-                    </button>
+                    <div className="car_info">
+                        <button key={index} type="button" className="list-group-item list-group-item-action"
+                                aria-current="true">
+                            {item.car_name}
+                        </button>
+                        <button className="deleteBtn" onClick={()=>{deleteCar(cars[index].id)}}><i className="fa fa-trash-o"></i></button>
+                    </div>
                 ))}
-                <button type="button" className="list-group-item list-group-item-action active" aria-current="true">
-                    The current button
-                </button>
 
+                {cars.length < 3 ?
+                    <button type="button" className="list-group-item list-group-item-action" aria-current="true"
+                            onClick={addCar}>
+                        Add car
+                    </button> : null}
             </div>
         </>
     );

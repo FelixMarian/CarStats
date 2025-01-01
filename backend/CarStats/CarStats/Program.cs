@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using BCrypt.Net;
 using System.Reflection.Metadata.Ecma335;
 using CarStats;
+using System.Net;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -87,6 +88,18 @@ app.MapPost("/addCar", async (CarDbContext db, [FromBody] CarAddDTO response) =>
     db.cars.Add(car);
     await db.SaveChangesAsync();
     return Results.Ok(car);
+});
+
+app.MapDelete("/deleteCar/{id}", async (CarDbContext db, String id) =>
+{
+    var carToDel = db.cars.Find(id);
+    if(carToDel is null)
+    {
+        return Results.NotFound();
+    }
+    db.cars.Remove(carToDel);
+    await db.SaveChangesAsync();
+    return Results.Ok();
 });
 
 app.UseHttpsRedirection();

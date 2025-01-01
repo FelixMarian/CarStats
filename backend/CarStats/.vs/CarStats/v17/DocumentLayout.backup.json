@@ -23,12 +23,12 @@
       "RelativeMoniker": "D:0:0:{32948754-8221-43DD-B490-17666C5893AE}|CarStats.Data\\CarStats.Data.csproj|solutionrelative:carstats.data\\dbcontexts\\cardbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\stoen\\Desktop\\CarStats\\backend\\CarStats\\CarStats.Data\\Migrations\\CarDb\\20241231114117_carsMigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CarStats.Data\\Migrations\\CarDb\\20241231114117_carsMigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{32948754-8221-43DD-B490-17666C5893AE}|CarStats.Data\\CarStats.Data.csproj|c:\\users\\stoen\\desktop\\carstats\\backend\\carstats\\carstats.data\\dbcontexts\\accountdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{32948754-8221-43DD-B490-17666C5893AE}|CarStats.Data\\CarStats.Data.csproj|solutionrelative:carstats.data\\dbcontexts\\accountdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32948754-8221-43DD-B490-17666C5893AE}|CarStats.Data\\CarStats.Data.csproj|c:\\users\\stoen\\desktop\\carstats\\backend\\carstats\\carstats.data\\migrations\\cardb\\20241231114117_carsmigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32948754-8221-43DD-B490-17666C5893AE}|CarStats.Data\\CarStats.Data.csproj|solutionrelative:carstats.data\\migrations\\cardb\\20241231114117_carsmigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -48,7 +48,7 @@
               "RelativeDocumentMoniker": "CarStats\\Program.cs",
               "ToolTip": "C:\\Users\\stoen\\Desktop\\CarStats\\backend\\CarStats\\CarStats\\Program.cs",
               "RelativeToolTip": "CarStats\\Program.cs",
-              "ViewState": "AgIAAEUAAAAAAAAAAAAAAFAAAABUAAAAAAAAAA==",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAwwGUAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-29T19:43:36.31Z",
               "IsPinned": true,
@@ -65,8 +65,7 @@
               "ViewState": "AgIAAAgAAAAAAAAAAAA3wBQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-31T10:48:19.833Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -78,8 +77,7 @@
               "RelativeToolTip": "CarStats.Data\\DTOs\\GetCarDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-31T13:49:18.083Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-31T13:49:18.083Z"
             },
             {
               "$type": "Document",
@@ -91,12 +89,11 @@
               "RelativeToolTip": "CarStats\\httpContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-31T11:59:58.178Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-31T11:59:58.178Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "20241231114117_carsMigration.cs",
               "DocumentMoniker": "C:\\Users\\stoen\\Desktop\\CarStats\\backend\\CarStats\\CarStats.Data\\Migrations\\CarDb\\20241231114117_carsMigration.cs",
               "RelativeDocumentMoniker": "CarStats.Data\\Migrations\\CarDb\\20241231114117_carsMigration.cs",
@@ -104,8 +101,7 @@
               "RelativeToolTip": "CarStats.Data\\Migrations\\CarDb\\20241231114117_carsMigration.cs",
               "ViewState": "AgIAAC0AAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-31T11:41:17.876Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-31T11:41:17.876Z"
             },
             {
               "$type": "Document",
@@ -117,12 +113,11 @@
               "RelativeToolTip": "CarStats.Data\\DbContexts\\CarDbContext.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAlwAkAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-31T11:37:39.997Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-31T11:37:39.997Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "AccountDbContext.cs",
               "DocumentMoniker": "C:\\Users\\stoen\\Desktop\\CarStats\\backend\\CarStats\\CarStats.Data\\DbContexts\\AccountDbContext.cs",
               "RelativeDocumentMoniker": "CarStats.Data\\DbContexts\\AccountDbContext.cs",
@@ -130,8 +125,7 @@
               "RelativeToolTip": "CarStats.Data\\DbContexts\\AccountDbContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-31T11:36:12.422Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-31T11:36:12.422Z"
             }
           ]
         }
