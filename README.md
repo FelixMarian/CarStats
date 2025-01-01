@@ -1,2 +1,4 @@
 # CarStats
-A website where based on your account you can add as many cars as you wish and monitor the money you spend on them
+A fullstack website with an authentication system where you can add your cars and monitor the money you spend on them using REST APIs.
+
+This is my first fullstack project, the frontend is made in ReactJS and the backend in APS.NET Core Web API using minimal APIs
