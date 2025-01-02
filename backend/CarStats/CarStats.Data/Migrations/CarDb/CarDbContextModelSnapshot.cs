@@ -48,11 +48,16 @@ namespace CarStats.Data.Migrations.CarDb
 
             modelBuilder.Entity("CarStats.Data.Models.CarExpenses", b =>
                 {
-                    b.Property<Guid>("car_id")
-                        .HasColumnType("uuid");
+                    b.Property<string>("id")
+                        .HasColumnType("text");
 
-                    b.Property<DateTime>("date")
-                        .HasColumnType("timestamp without time zone");
+                    b.Property<string>("car_id")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("date")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<float>("price")
                         .HasColumnType("real");
@@ -60,6 +65,8 @@ namespace CarStats.Data.Migrations.CarDb
                     b.Property<string>("title")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.HasKey("id");
 
                     b.ToTable("expenses");
                 });

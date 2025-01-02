@@ -3,16 +3,17 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CarStats.Data.Models
 {
-    [Keyless]
     public class CarExpenses
     {
-        public Guid car_id { get; set; }
+        public String id { get; set; }
+        public String car_id { get; set; }
         public String title {  get; set; }
-        public DateTime date { get; set; }
+        public String date { get; set; }
         public float price { get; set; }
 
-        public CarExpenses(Guid car_id, string title, DateTime date, float price)
+        public CarExpenses(String car_id, String title, String date, float price)
         {
+            this.id = Guid.NewGuid().ToString();
             this.car_id = car_id;
             this.title = title;
             this.date = date;

@@ -57,3 +57,34 @@ label{
     margin-top: 1rem;
 }
 
+table, th, td{
+    margin-top: 3rem ;
+    border: 1px solid black;
+    width: 20vw;
+    text-align: center;
+}
+
+th {
+    position: sticky;
+    background-color: #eaea60;
+    top: 0;
+}
+
+tr:hover {background-color: #babab5;}
+
+table {
+
+    display: block;
+    max-height: 65vh;
+    overflow-y: scroll;
+}
+
+i{
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.addExp{
+    position: absolute;
+    margin-top: 57rem;
+}

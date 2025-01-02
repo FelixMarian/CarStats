@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CarStats.Data.Migrations.CarDb
 {
     [DbContext(typeof(CarDbContext))]
-    [Migration("20241231114117_carsMigration")]
-    partial class carsMigration
+    [Migration("20250102114824_CardDbContextMigration")]
+    partial class CardDbContextMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -51,11 +51,16 @@ namespace CarStats.Data.Migrations.CarDb
 
             modelBuilder.Entity("CarStats.Data.Models.CarExpenses", b =>
                 {
-                    b.Property<Guid>("car_id")
-                        .HasColumnType("uuid");
+                    b.Property<string>("id")
+                        .HasColumnType("text");
 
-                    b.Property<DateTime>("date")
-                        .HasColumnType("timestamp without time zone");
+                    b.Property<string>("car_id")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("date")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<float>("price")
                         .HasColumnType("real");
@@ -63,6 +68,8 @@ namespace CarStats.Data.Migrations.CarDb
                     b.Property<string>("title")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.HasKey("id");
 
                     b.ToTable("expenses");
                 });

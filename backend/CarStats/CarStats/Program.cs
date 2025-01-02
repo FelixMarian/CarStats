@@ -77,14 +77,14 @@ if (BCrypt.Net.BCrypt.Verify(request.password, password)) {
 });
 
 
-app.MapPost("/getCars", async (CarDbContext db, [FromBody] GetCarDTO response) =>
+app.MapPost("/getCars", async (CarDbContext db, [FromBody] GetCarDTO request) =>
 {
-    return await db.cars.Where(c => c.player_id == response.player_id).ToListAsync();
+    return await db.cars.Where(c => c.player_id == request.player_id).ToListAsync();
 });
 
-app.MapPost("/addCar", async (CarDbContext db, [FromBody] CarAddDTO response) =>
+app.MapPost("/addCar", async (CarDbContext db, [FromBody] CarAddDTO request) =>
 {
-    Car car = new Car(response.player_uuid, response.car_name);
+    Car car = new Car(request.player_uuid, request.car_name);
     db.cars.Add(car);
     await db.SaveChangesAsync();
     return Results.Ok(car);
@@ -100,6 +100,18 @@ app.MapDelete("/deleteCar/{id}", async (CarDbContext db, String id) =>
     db.cars.Remove(carToDel);
     await db.SaveChangesAsync();
     return Results.Ok();
+});
+
+app.MapGet("getExpenses/{car_id}", async (CarDbContext db, String car_id) =>
+{
+    return await db.expenses.Where(exp => exp.car_id == car_id).ToListAsync();
+});
+
+app.MapPost("addExpense/", async (CarDbContext db, [FromBody] ExpenseAddDTO requst) =>{
+    CarExpenses newExpense = new CarExpenses(requst.car_id, requst.title, DateTime.Now.ToString("dd-MMM-yyyy hh:mm"), requst.price);
+    db.expenses.Add(newExpense);
+    await db.SaveChangesAsync();
+    return Results.Ok(newExpense);
 });
 
 app.UseHttpsRedirection();

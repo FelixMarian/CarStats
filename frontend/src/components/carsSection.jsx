@@ -3,7 +3,7 @@ import axios from "axios";
 import {useEffect, useState} from "react";
 import { IoIosClose } from "react-icons/io";
 
-function CarsSection() {
+function CarsSection({loadExpenses}) {
     const [cars, setCars] = useState([]);
     const [reloadCars, setReloadCars] = useState(false);
     const [deletedCars, setDeletedCars] = useState(false);
@@ -59,17 +59,28 @@ function CarsSection() {
         getCars();
     }, [reloadCars,deletedCars]);
 
+    function handleClick(){
+
+    }
+
     return (
         <>
             <div className="list-group">
                 {cars.map((item, index) => (
                     <div className="car_info">
                         <button key={index} type="button" className="list-group-item list-group-item-action"
-                                aria-current="true">
+                                aria-current="true" onClick={() => {
+                            sessionStorage.setItem("selected_car_id", cars[index].id)
+                            loadExpenses(cars[index].id)
+                        }}>
                             {item.car_name}
                         </button>
-                        <button className="deleteBtn" onClick={()=>{deleteCar(cars[index].id)}}><i className="fa fa-trash-o"></i></button>
+                        <button className="deleteBtn" onClick={() => {
+                            deleteCar(cars[index].id)
+                        }}><i className="fa fa-trash-o"></i></button>
+
                     </div>
+
                 ))}
 
                 {cars.length < 3 ?
