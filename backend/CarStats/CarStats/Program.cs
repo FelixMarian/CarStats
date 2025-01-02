@@ -93,9 +93,15 @@ app.MapPost("/addCar", async (CarDbContext db, [FromBody] CarAddDTO request) =>
 app.MapDelete("/deleteCar/{id}", async (CarDbContext db, String id) =>
 {
     var carToDel = db.cars.Find(id);
+    var expensesList = db.expenses.Where(exp => exp.car_id == id).ToList();
+
     if(carToDel is null)
     {
         return Results.NotFound();
+    }
+    foreach (CarExpenses expense in expensesList)
+    {
+        db.expenses.Remove(expense);
     }
     db.cars.Remove(carToDel);
     await db.SaveChangesAsync();

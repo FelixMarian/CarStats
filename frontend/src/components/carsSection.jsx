@@ -7,6 +7,7 @@ function CarsSection({loadExpenses}) {
     const [cars, setCars] = useState([]);
     const [reloadCars, setReloadCars] = useState(false);
     const [deletedCars, setDeletedCars] = useState(false);
+    const [carName, setCarName] = useState("");
 
     async function getCars(){
         try{
@@ -35,10 +36,11 @@ function CarsSection({loadExpenses}) {
         }
     }
 
-    async function addCar(){
+    async function addCar(prop){
         try{
+            const name = prop;
             const response = await axios.post("https://localhost:7178/addCar",{
-                car_name: "masina",
+                car_name: name,
                 player_uuid: sessionStorage.getItem("player_uuid")
             },{headers: {
                     "Content-Type": "application/json"
@@ -59,9 +61,6 @@ function CarsSection({loadExpenses}) {
         getCars();
     }, [reloadCars,deletedCars]);
 
-    function handleClick(){
-
-    }
 
     return (
         <>
@@ -77,17 +76,18 @@ function CarsSection({loadExpenses}) {
                         </button>
                         <button className="deleteBtn" onClick={() => {
                             deleteCar(cars[index].id)
+
                         }}><i className="fa fa-trash-o"></i></button>
 
                     </div>
 
                 ))}
-
                 {cars.length < 3 ?
-                    <button type="button" className="list-group-item list-group-item-action" aria-current="true"
-                            onClick={addCar}>
-                        Add car
-                    </button> : null}
+                    <div className="addCarSection">
+                        <input type="text" className="addInput"  value={carName} placeholder="Car name"
+                        onChange={event => {setCarName(event.target.value)}}></input>
+                        <button className="addBtn" onClick={()=>addCar(carName)}>Add Car</button>
+                    </div>: null}
             </div>
         </>
     );

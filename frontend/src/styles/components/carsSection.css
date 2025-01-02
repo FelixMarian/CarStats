@@ -7,11 +7,13 @@
     align-items: center;
     padding: 0;
     margin-top: 1rem;
+
 }
 
 a.list-group-item, button.list-group-item{
     color:black !important;
     height: 5vh;
+    width: 12vw; !important;
     text-align: center;
     justify-content: center;
     align-items: center;
@@ -20,12 +22,19 @@ a.list-group-item, button.list-group-item{
 
 }
 
+.list-group{
+    display: flex;
+    flex-direction: column;
+
+}
+
 .car_info{
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 12vw;
+    width: 80%;
+    margin: auto;
 }
 
 .fa fa-trash-o{
@@ -40,4 +49,21 @@ a.list-group-item, button.list-group-item{
     margin-top: 1rem;
     margin-left: 1rem;
 
+}
+
+.addInput{
+    width: 50%;
+}
+
+.addBtn{
+    width: 35%
+}
+
+.button.list-group-item{
+}
+
+.addCarSection{
+    position: relative;
+    margin-top: 5%;
+    margin-left: 10%;
 }
