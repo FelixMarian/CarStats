@@ -70,6 +70,7 @@ function CarsSection({loadExpenses}) {
                         <button key={index} type="button" className="list-group-item list-group-item-action"
                                 aria-current="true" onClick={() => {
                             sessionStorage.setItem("selected_car_id", cars[index].id)
+                            sessionStorage.setItem("selected_car_name", cars[index].name)
                             loadExpenses(cars[index].id)
                         }}>
                             {item.car_name}

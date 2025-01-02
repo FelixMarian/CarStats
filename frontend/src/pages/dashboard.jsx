@@ -3,11 +3,15 @@ import TitleLabe from "../components/titleLabe.jsx";
 import {useEffect, useState} from "react";
 import axios from "axios";
 import CarsSection from "../components/carsSection.jsx";
+import carsSection from "../components/carsSection.jsx";
 
 function dashboard() {
     const [username, setUsername] = useState("");
     const [expenses, setExpenses] = useState([]);
     const [newExpense, setNewExpense] = useState(false);
+    const [title, setTitle] = useState("");
+    const [price, setPrice] = useState(0);
+
 
     async function getExpenses(prop){
         try{
@@ -38,8 +42,8 @@ function dashboard() {
             const car_id = sessionStorage.getItem("selected_car_id");
             const response = await axios.post("https://localhost:7178/addExpense",{
                 car_id: car_id,
-                title: "abc",
-                price: 34
+                title: title,
+                price: price
             },{headers: {
                 "Content-Type": "application/json"
                 }});
@@ -59,6 +63,7 @@ function dashboard() {
                 {}
                 <CarsSection loadExpenses={getExpenses} />
             </div>
+
                 <div className="stats">
                     <TitleLabe title="Expenses"/>
                     <table>
@@ -75,8 +80,22 @@ function dashboard() {
                             </tr>
                         ))}
                     </table>
-                    <button className="addExp list-group-item-action" onClick={addExpense}>
-                        <i className="fa fa-plus"></i>Add expense<i className="fa fa-plus"></i></button>
+                    <div className="expensesDetailsSection">
+                        <input type="text" className="addInputExpense" value={title} placeholder="Title"
+                               onChange={event => {
+                                   setTitle(event.target.value)
+                               }}></input>
+                        <input type="number" className="addInputExpense" value={price} placeholder="0"
+                               onChange={event => {
+                                   setPrice(event.target.value)
+                               }}></input>
+                        <button className="addExp" onClick={()=>{
+                            addExpense();
+                            setPrice(0);
+                            setTitle("");
+                        }}>
+                           Add</button>
+                    </div>
                 </div>
             </div>
         </div>

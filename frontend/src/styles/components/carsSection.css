@@ -52,7 +52,11 @@ a.list-group-item, button.list-group-item{
 }
 
 .addInput{
+    background: transparent;
+    border: none;
+    border-bottom: 0.5px solid #6c6c2a;
     width: 50%;
+    text-align: center;
 }
 
 .addBtn{
