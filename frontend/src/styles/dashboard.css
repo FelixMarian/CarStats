@@ -103,3 +103,102 @@ i{
     width: 30%;
     text-align: center;
 }
+
+@media (max-width: 600px){
+    body{
+        font-size: 7px;
+    }
+    .addBtn{
+        font-size: 0.7rem;
+    }
+    table, th, td{
+        font-size: 1.1rem;
+    }
+    table{
+        min-width: 35vw;
+    }
+    .info{
+        min-height: 23vh;
+        min-width: 20vw;
+    }
+    .stats{
+        min-width: 40vw;
+    }
+}
+
+@media (min-width: 600px){
+    body{
+        font-size: 10px;
+    }
+    .addBtn{
+        font-size: 0.7rem;
+    }
+    table, th, td{
+        font-size: 1.1rem;
+    }
+    table{
+        min-width: 35vw;
+    }
+    .info{
+        min-height: 23vh;
+        min-width: 20vw;
+    }
+    .stats{
+        min-width: 40vw;
+    }
+}
+
+
+@media (min-width: 996px){
+    body{
+        font-size: 12px;
+    }
+    table{
+        min-width: 25vw;
+    }
+    .stats{
+        min-width: 30vw;
+    }
+    .addBtn{
+        font-size: 0.9rem;
+    }
+    table, th, td{
+        font-size: 1.2rem;
+    }
+    .info{
+        min-height: 55vh;
+        min-width: 15vw;
+    }
+}
+
+
+@media (min-width: 1250px){
+    .info{
+        min-height: 65vh;
+    }
+    body{
+        font-size: 12px;
+    }
+    .addBtn{
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 1440px){
+    .info{
+        min-height: 70vh;
+    }
+    body{
+        font-size: 16px;
+    }
+    .addBtn{
+        font-size: 1rem;
+    }
+}
+
+
+@media (min-width: 1920px){
+    .info{
+
+    }
+}
