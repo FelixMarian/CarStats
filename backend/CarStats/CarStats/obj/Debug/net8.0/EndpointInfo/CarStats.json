@@ -178,6 +178,28 @@
           }
         }
       }
+    },
+    "/totalSpent/{selected_car_id}": {
+      "get": {
+        "tags": [
+          "CarStats"
+        ],
+        "parameters": [
+          {
+            "name": "selected_car_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {

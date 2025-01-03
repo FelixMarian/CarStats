@@ -71,3 +71,11 @@ a.list-group-item, button.list-group-item{
     margin-top: 5%;
     margin-left: 10%;
 }
+
+.totalSpent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15rem;
+}

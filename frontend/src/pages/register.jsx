@@ -30,7 +30,7 @@ function register(){
             )
             //If register was made, redirect
             if(response.status === 200) {
-                sessionStorage.setItem("email", email);
+                sessionStorage.setItem("email", mail);
                 sessionStorage.setItem("player_uuid", response.data.id);
                 sessionStorage.setItem("username", response.data.username);
                 navigate("/dashboard");

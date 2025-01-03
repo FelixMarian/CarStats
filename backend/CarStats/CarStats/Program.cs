@@ -8,6 +8,7 @@ using BCrypt.Net;
 using System.Reflection.Metadata.Ecma335;
 using CarStats;
 using System.Net;
+using System.Net.Mail;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -53,24 +54,41 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.MapPost("/registerAccount", async (AccountDbContext db,   [FromBody] AccountRegisterDTO request) =>
+app.MapPost("/registerAccount", async (AccountDbContext db, [FromBody] AccountRegisterDTO request) =>
 {
     var encReqPass = BCrypt.Net.BCrypt.HashPassword(request.password);
-    Account account = new Account(request.email, request.username, encReqPass, DateTime.Now);
-    db.accounts.Add(account);
-    await db.SaveChangesAsync();
- 
-    return Results.Ok(account);
+    if (String.IsNullOrWhiteSpace(request.email) ||
+        String.IsNullOrWhiteSpace(request.username) ||
+        String.IsNullOrWhiteSpace(request.password))
+    {
+        return Results.Problem();
+    }
+    else
+    {
+        Account account = new Account(request.email, request.username, encReqPass, DateTime.Now);
+        db.accounts.Add(account);
+        await db.SaveChangesAsync();
+        return Results.Ok(account);
+    }
+
 });
 
 app.MapPost("/loginAccount", async (AccountDbContext db , [FromBody] AccountLoginDTO request) =>
 {
-Account foundAcc = await db.accounts.FirstOrDefaultAsync(acc => acc.email == request.email);
-String password = foundAcc.password;
+    Account foundAcc = await db.accounts.FirstOrDefaultAsync(acc => acc.email == request.email);
+    if (foundAcc is not null)
+    {
+        String password = foundAcc.password;
 
-if (BCrypt.Net.BCrypt.Verify(request.password, password)) {
-        return Results.Ok(foundAcc);
-    } else
+        if (BCrypt.Net.BCrypt.Verify(request.password, password))
+        
+            return Results.Ok(foundAcc);
+        else
+        
+            return Results.Problem();
+        
+    }
+    else
     {
         return Results.Problem();
     }
@@ -84,10 +102,14 @@ app.MapPost("/getCars", async (CarDbContext db, [FromBody] GetCarDTO request) =>
 
 app.MapPost("/addCar", async (CarDbContext db, [FromBody] CarAddDTO request) =>
 {
-    Car car = new Car(request.player_uuid, request.car_name);
-    db.cars.Add(car);
-    await db.SaveChangesAsync();
-    return Results.Ok(car);
+    if (!String.IsNullOrWhiteSpace(request.car_name))
+    {
+        Car car = new Car(request.player_uuid, request.car_name);
+        db.cars.Add(car);
+        await db.SaveChangesAsync();
+        return Results.Ok(car);
+    }
+    else return Results.Problem();
 });
 
 app.MapDelete("/deleteCar/{id}", async (CarDbContext db, String id) =>
@@ -114,10 +136,28 @@ app.MapGet("getExpenses/{car_id}", async (CarDbContext db, String car_id) =>
 });
 
 app.MapPost("addExpense/", async (CarDbContext db, [FromBody] ExpenseAddDTO requst) =>{
-    CarExpenses newExpense = new CarExpenses(requst.car_id, requst.title, DateTime.Now.ToString("dd-MMM-yyyy hh:mm"), requst.price);
-    db.expenses.Add(newExpense);
-    await db.SaveChangesAsync();
-    return Results.Ok(newExpense);
+    if (!String.IsNullOrWhiteSpace(requst.title) || (requst.price <= 0))
+    {
+        CarExpenses newExpense = new CarExpenses(requst.car_id, requst.title, DateTime.Now.ToString("dd-MMM-yyyy hh:mm"), requst.price);
+        db.expenses.Add(newExpense);
+        await db.SaveChangesAsync();
+        return Results.Ok(newExpense);
+    }
+    else return Results.Problem();
+});
+
+app.MapGet("totalSpent/{selected_car_id}", async (CarDbContext db, String selected_car_id) =>
+{
+    float Sum=0;
+    var expList = db.expenses.Where(exp => exp.car_id == selected_car_id).ToList();
+    if(expList is not null)
+    {
+        foreach (var exp in expList)
+        {
+            Sum += exp.price;
+        }
+    }
+    return Results.Ok(Sum);
 });
 
 app.UseHttpsRedirection();
