@@ -38,3 +38,11 @@ This is my first fullstack project, with the frontend built in ReactJS and the b
 - **Responsive Design**: `@media` queries  
 
 Feel free to explore the project and provide feedback! 🚗💻  
+
+## License
+This project is licensed under the [MIT License](LICENSE).
+
+## Credits
+- **Author**: Felix-Marian STOENOIU
+- **Email**: Stoenoiu.Felix1@gmail.com
+- **GitHub**: [My GitHub profile](https://github.com/FelixMarian)
