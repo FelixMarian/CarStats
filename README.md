@@ -39,6 +39,13 @@ This is my first fullstack project, with the frontend built in ReactJS and the b
 
 Feel free to explore the project and provide feedback! 🚗💻  
 
+## Fontend photos
+![Photo](photos/1.png)
+![Photo](photos/2.png)
+![Photo](photos/3.png)
+![Photo](photos/4.png)
+![Photo](photos/5.png)
+
 ## License
 This project is licensed under the [MIT License](LICENSE).
 
